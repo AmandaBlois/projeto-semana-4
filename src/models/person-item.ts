@@ -3,7 +3,7 @@ export class Person{
     telefone:string;
     local;
     reputacao:number;
-    itens=[];
+    itens:Array<Item>;
     foto;
     cartao:string;
     user:string;
