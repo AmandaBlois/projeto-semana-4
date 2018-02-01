@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { PerfilPage } from '../perfil/perfil';
 
 /**
  * Generated class for the PegarPage page.
@@ -23,6 +24,7 @@ export class PegarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PegarPage');
+    this.navCtrl.push(PerfilPage);
   }
 
   initializeItems() {

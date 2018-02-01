@@ -11,6 +11,7 @@ import { MeuPage } from '../pages/meu/meu';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PeopleProvider } from '../providers/people/people';
+import { PerfilPage } from '../pages/perfil/perfil';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { PeopleProvider } from '../providers/people/people';
     TabsPage,
     PegarPage,
     EmprestarPage,
-    MeuPage
+    MeuPage,
+    PerfilPage
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { PeopleProvider } from '../providers/people/people';
     PegarPage,
     EmprestarPage,
     MeuPage,
-    TabsPage
+    TabsPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,

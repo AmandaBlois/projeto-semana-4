@@ -13,13 +13,14 @@ export class PeopleProvider {
 
   constructor() {
     console.log('PeopleProvider loaded!');
-    this.incializePeople();
+    
   }
 
-  incializePeople() {
-    let itens = [];
+  incializePeople(person) {
+    person.itens = [];
 
-    this.people.push("fopor", "Rodrigo Ceccato", "(11)9999-9999", "São Paulo", 5, "missingImage", "4444-5555-33333-5555", itens);
+    this.people.push(person);
+    console.log(person);
   }
 
   encontraPessoaNome(nomeProcurado){
