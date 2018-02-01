@@ -15,10 +15,59 @@
 
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+ 
+  <!-- lista o resultado da busca -->
   <ion-list *ngIf="userInput != ''">
     <ion-item *ngFor="let item of items">
       {{ item }}
     </ion-item>
+  </ion-list>
+
+  <!-- lista tudo caso ninguem pesquise nada -->
+  <ion-list *ngIf="userInput == ''">
+    <ion-card class="thing-card">
+      <ion-title>
+        <h1>Carregador Iphone</h1>
+        <h3>Carregador Apple Iphone 5W sem cabo</h3>
+        <h3>
+          <ion-icon name='clock'></ion-icon>
+          0h15 até 2h30
+          <ion-icon name='cash'></ion-icon>
+          R$:3,99/min
+        </h3>
+      </ion-title>
+      <div style="position: relative">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3UkbyteFsx21X1Xe7gATr6fr3N34ckZ6FkdV3DkmKQ9CWUeQV">
+      </div>
+
+      <ion-item>
+          <ion-icon color="subtle" large item-start name='person'></ion-icon>
+          <h2>Henrique Manuel da Costa</h2>
+          <p>
+            5 
+            <ion-icon name='star'></ion-icon>
+            <ion-icon name='star'></ion-icon>
+            <ion-icon name='star'></ion-icon>
+            <ion-icon name='star'></ion-icon>
+            <ion-icon name='star'></ion-icon>
+          </p>
+        </ion-item>
+
+      <ion-item>
+        <ion-icon color="subtle" large item-start name='map'></ion-icon>
+        <h2>M.A.S.P.</h2>
+        <p>Avenida Paulista, 3349</p>
+        <span ion-text item-end color="secondary" class="item-bold">18 min</span>
+        <span ion-text item-end color="subtle">(459m)</span>
+      </ion-item>
+
+      <ion-item actions>
+        <button ion-button block color="primary">
+          Pegar
+        </button>
+      </ion-item>
+    </ion-card>
+
   </ion-list>
 
 </ion-content>
