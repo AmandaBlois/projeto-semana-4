@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MapaPage } from '../mapa/mapa';
 import { Person, Item} from '../../models/person-item';
 import { PeopleProvider } from '../../providers/people/people';
+import { PerfilPage } from '../perfil/perfil';
 
 /**
  * Generated class for the PegarPage page.

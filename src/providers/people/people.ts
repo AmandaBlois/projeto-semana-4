@@ -26,7 +26,16 @@ export class PeopleProvider {
     ]));
 
     return this.people;
+    
   }
+
+  // amanda fez isso, perguntar depois
+  // incializePeople(person) {
+  //   person.itens = [];
+
+  //   this.people.push(person);
+  //   console.log(person);
+  // }
 
   encontraPessoaNome(nomeProcurado){
     for(let i = 0; i < this.people.length; i++){

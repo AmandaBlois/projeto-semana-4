@@ -12,6 +12,7 @@ import { MapaPage } from '../pages/mapa/mapa';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PeopleProvider } from '../providers/people/people';
+import { PerfilPage } from '../pages/perfil/perfil';
 
 
 @NgModule({
@@ -21,7 +22,12 @@ import { PeopleProvider } from '../providers/people/people';
     PegarPage,
     EmprestarPage,
     MeuPage,
+<<<<<<< HEAD
     MapaPage
+=======
+    PerfilPage
+
+>>>>>>> d99ea4dd8f579470365e3b8540cb404659465040
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,11 @@ import { PeopleProvider } from '../providers/people/people';
     EmprestarPage,
     MeuPage,
     TabsPage,
+<<<<<<< HEAD
     MapaPage
+=======
+    PerfilPage
+>>>>>>> d99ea4dd8f579470365e3b8540cb404659465040
   ],
   providers: [
     StatusBar,
