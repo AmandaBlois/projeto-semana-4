@@ -17,23 +17,24 @@
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
  
   <!-- lista o resultado da busca -->
-  <ion-list *ngIf="userInput != ''">
+  <!-- <ion-list *ngIf="userInput != ''">
     <ion-item *ngFor="let item of items">
       {{ item }}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
   <!-- lista tudo caso ninguem pesquise nada -->
   <ion-list *ngIf="userInput == ''">
-    <ion-card class="thing-card">
+    <ion-card class="thing-card" *ngFor="let item of items">
       <ion-title>
-        <h1>Carregador Iphone</h1>
-        <h3>Carregador Apple Iphone 5W sem cabo</h3>
+        <h1>{{item.nome}}</h1>
+        <h3>{{item.desc}}</h3>
         <h3>
           <ion-icon name='clock'></ion-icon>
-          0h15 até 2h30
+          {{item.tempoInicio}} até {{item.tempoFim}}
           <ion-icon name='cash'></ion-icon>
-          R$:3,99/min
+          <!-- TODO format preco -->
+          R$:{{item.preco}}/min
         </h3>
       </ion-title>
       <div style="position: relative">
@@ -42,7 +43,7 @@
 
       <ion-item>
           <ion-icon color="subtle" large item-start name='person'></ion-icon>
-          <h2>Henrique Manuel da Costa</h2>
+          <h2>{{item.dono}}</h2>
           <p>
             5 
             <ion-icon name='star'></ion-icon>
@@ -53,7 +54,7 @@
           </p>
         </ion-item>
 
-      <ion-item>
+      <ion-item (click)="mapClick()">
         <ion-icon color="subtle" large item-start name='map'></ion-icon>
         <h2>M.A.S.P.</h2>
         <p>Avenida Paulista, 3349</p>
