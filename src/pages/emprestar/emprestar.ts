@@ -19,7 +19,6 @@ export class EmprestarPage {
         encodingType: this.camera.EncodingType.JPEG,
         mediaType: this.camera.MediaType.PICTURE
       }
-
   }
 
   ionViewDidLoad() {

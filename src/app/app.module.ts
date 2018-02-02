@@ -14,6 +14,8 @@ import { MapaPage } from '../pages/mapa/mapa';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PeopleProvider } from '../providers/people/people';
+// importando o mapa (mike)
+import { MapaPageModule } from '../pages/mapa/mapa.module';
 import { PerfilPage } from '../pages/perfil/perfil';
 
 @NgModule({
@@ -28,7 +30,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MapaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
