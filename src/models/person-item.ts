@@ -3,19 +3,19 @@ export class Person{
     telefone:string;
     local;
     reputacao:number;
-    itens=[];
+    itens:Array<Item>;
     foto;
-    cartao:string;
+    cpf:string;
     user:string;
 
-    constructor(user, nome, telefone, local, reputacao, foto, cartao, itens){ 
+    constructor(user, nome, telefone, local, reputacao, foto, cpf, itens){ 
         this.user = user;
         this.nome = nome;
         this.telefone = telefone;
         this.local = local;
         this.reputacao = reputacao;
         this.foto = foto;
-        this.cartao = cartao;
+        this.cpf = cpf;
         this.itens = itens;
     }
 }

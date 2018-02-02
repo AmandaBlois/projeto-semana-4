@@ -10,17 +10,32 @@ import { Person, Item} from '../../models/person-item';
 @Injectable()
 export class PeopleProvider {
   people = [];
+  itensDisponiveis = [];
 
   constructor() {
     console.log('PeopleProvider loaded!');
     this.incializePeople();
+    console.log("people inicialized");
   }
 
   incializePeople() {
-    let itens = [];
+    this.people.push(new Person("fopor", "Rodrigo Ceccato", "(11)9999-9999", "São Paulo", 5, "missingImage", "4444-5555-33333-5555", 
+    [
+    new Item("Carregador", "Caregador de 3 watts", "imagemNotFound", "3 horas", "5 horas", 234, this.people[this.people.length], 150, true, ""),
+    new Item("Cabo USB", "Cabo USB-C para celulares legais", "imagemNotFound", "3 horas", "5 horas", 123, this.people[this.people.length], 50, true, "")
+    ]));
 
-    this.people.push("fopor", "Rodrigo Ceccato", "(11)9999-9999", "São Paulo", 5, "missingImage", "4444-5555-33333-5555", itens);
+    return this.people;
+    
   }
+
+  // amanda fez isso, perguntar depois
+  // incializePeople(person) {
+  //   person.itens = [];
+
+  //   this.people.push(person);
+  //   console.log(person);
+  // }
 
   encontraPessoaNome(nomeProcurado){
     for(let i = 0; i < this.people.length; i++){
@@ -42,6 +57,21 @@ export class PeopleProvider {
     return "-1";
   }
 
+  listarItensDisponiveis(){
+    let i, j;
+    this.itensDisponiveis = [];
+    console.log(this.people);
+    for(i = 0; i < this.people.length; i++){
+      console.log("Searching person: " + this.people[i].nome + ".");
+      for(j = 0; this.people[i].itens != null && j < this.people[i].itens.length; j++){
+        console.log(this.people[i]);
+        if(this.people[i].itens[j].disp == true) {
+          this.itensDisponiveis.push(this.people[i].itens[j]);
+        }
+      }
+    }
 
+    return this.itensDisponiveis;
+  }
 
 }
