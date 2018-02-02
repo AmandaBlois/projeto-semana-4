@@ -4,13 +4,7 @@ import { MapaPage } from '../mapa/mapa';
 import { Person, Item} from '../../models/person-item';
 import { PeopleProvider } from '../../providers/people/people';
 import { PerfilPage } from '../perfil/perfil';
-
-/**
- * Generated class for the PegarPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PersonDetailPage } from '../person-detail/person-detail';
 
 @IonicPage()
 @Component({
@@ -28,7 +22,6 @@ export class PegarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PegarPage');
-    this.navCtrl.push(PerfilPage);
     this.items = this.peopleProv.listarItensDisponiveis();
     
   }
@@ -62,6 +55,14 @@ export class PegarPage {
   mapClick(){
     this.items = this.peopleProv.listarItensDisponiveis();
     this.navCtrl.push(MapaPage);
+  }
+
+  pessoaClick() {
+    let parametro = {
+      texto: "textoasddisajjiosa"
+    };
+
+    this.navCtrl.push(PersonDetailPage, parametro);
   }
 
 }
