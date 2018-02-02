@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PeopleProvider } from '../../providers/people/people';
+import { Person, Item} from '../../models/person-item';
 
 /**
  * Generated class for the EmprestarPage page.
@@ -24,4 +25,11 @@ export class EmprestarPage {
     console.log('ionViewDidLoad EmprestarPage');
   }
 
+  inserir(){
+    let person = this.people.people[this.people.usuarioIndex]
+    this.person.item.push(this.people.item);
+  }
+
+
+}
 }

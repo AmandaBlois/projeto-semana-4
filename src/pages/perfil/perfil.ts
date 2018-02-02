@@ -25,7 +25,8 @@ export class PerfilPage {
 
   inserir(){
     this.peopleSave.incializePeople(this.person);
-    
+    this.navCtrl.pop();
   }
+
 
 }

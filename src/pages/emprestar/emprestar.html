@@ -14,6 +14,47 @@
 
 
 <ion-content padding>
-  <p>Página onde posso cadastrar um objeto meu para ser emprestado!</p>
+    <ion-list>
+
+        this.nome=nome;
+        this.desc = desc;
+        this.img = img;
+        this.tempoInicio = tempoInicio;
+        this.tempoFim = tempoFim;
+        this.preco = preco;
+        this.dono = dono;
+        this.multa = multa;
+        this.disp = disp;
+        this.locador = locador;
+          
+        <ion-item>
+          <ion-label color="primary" fixed>objeto</ion-label>
+          <ion-input [(ngModel)]="item.nome"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" fixed>descrição</ion-label>
+          <ion-input [(ngModel)]="item.desc"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" fixed>foto</ion-label>
+            <ion-input [(ngModel)]="item.img"></ion-input>
+          </ion-item>
+      </ion-list>
+
+    
+        <ion-item>
+            <ion-label color="primary" fixed>Custo por hora</ion-label>
+            <ion-input [(ngModel)]="item.preço"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label color="primary" fixed>multa em cado de perda</ion-label>
+              <ion-input [(ngModel)]="item.multa"></ion-input>
+            </ion-item>
+
+
+      <button ion-button (click)="inserir()">Salvar</button>
 
 </ion-content>
