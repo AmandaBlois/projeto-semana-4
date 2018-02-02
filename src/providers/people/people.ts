@@ -10,39 +10,41 @@ import { Person, Item} from '../../models/person-item';
 @Injectable()
 export class PeopleProvider {
   people = [];
+  itensDisponiveis = [];
+  usuarioIndex = -1;
 
   constructor() {
-    console.log('PeopleProvider loaded!');
+  
+  }
+
+  // amanda fez isso, perguntar depois
+  incializePeople(person) {
+    person.itens = [new Item("Carregador", "Caregador de 3 watts", "imagemNotFound", "3 horas", "5 horas", 250, null, 2.4, true, "")];
+    person.reputacao = -1;
+
+    this.usuarioIndex = this.people.length; // guarda a posicao do usuario
+    this.people.push(person); // esse eh o usuario
     
   }
 
-  incializePeople(person) {
-    person.itens = [];
+  listarItensDisponiveis(){
+    let i, j;
 
-    this.people.push(person);
-    console.log(person);
-  }
+    this.itensDisponiveis = [];
 
-  encontraPessoaNome(nomeProcurado){
-    for(let i = 0; i < this.people.length; i++){
-      if(nomeProcurado == this.people[i].nome) {
-        return this.people[i];
+    for(i = 0; i < this.people.length; i++){
+
+      
+      for(j = 0; this.people[i].itens != null && j < this.people[i].itens.length; j++){
+
+        if(this.people[i].itens[j].disp == true) {
+          this.people[i].itens[j].dono = this.people[i];
+          this.itensDisponiveis.push(this.people[i].itens[j]);
+        }
       }
     }
 
-    return "-1";
+    return this.itensDisponiveis;
   }
-
-  encontraPessoaUser(nomeProcurado){
-    for(let i = 0; i < this.people.length; i++){
-      if(nomeProcurado == this.people[i].user) {
-        return this.people[i];
-      }
-    }
-
-    return "-1";
-  }
-
-
 
 }
