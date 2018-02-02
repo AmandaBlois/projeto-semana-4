@@ -11,6 +11,10 @@ import { MeuPage } from '../pages/meu/meu';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PeopleProvider } from '../providers/people/people';
+// importando o mapa (mike)
+import { MapaPageModule } from '../pages/mapa/mapa.module';
+import { MapaPage } from '../pages/mapa/mapa';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { PeopleProvider } from '../providers/people/people';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    MapaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
