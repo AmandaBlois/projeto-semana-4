@@ -31,7 +31,7 @@ export class EmprestarPage {
     let usuario = this.peopleProvider.getUsuarioAtivo();
     this.item.disp = true;
     usuario.itens.push(this.item);
-    console.log(usuario);
+    this.item =  new Item('','','','','','','','','','');
   }
   
   takeItemPicture(){

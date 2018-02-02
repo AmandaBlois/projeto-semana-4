@@ -52,10 +52,12 @@
 
       <ion-item (click)="mapClick(item.dono.local)">
         <ion-icon color="subtle" large item-start name='map'></ion-icon>
-        <h2>M.A.S.P.</h2>
-        <p>Avenida Paulista, 3349</p>
-        <span ion-text item-end color="secondary" class="item-bold">18 min</span>
-        <span ion-text item-end color="subtle">(459m)</span>
+        <h2>Local:</h2>
+        <p>Lat: {{item.dono.local.latitude}}</p>
+        <p>Lng: {{item.dono.local.longitude}}</p>
+        <!-- todo: implementar a distancia atual ate o local -->
+        <span ion-text item-end color="secondary" class="item-bold">1 min</span>
+        <span ion-text item-end color="subtle">(10 m)</span>
       </ion-item>
 
       <ion-item actions>

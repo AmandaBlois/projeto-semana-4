@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { PegarPage } from '../pegar/pegar';
 import { EmprestarPage } from '../emprestar/emprestar';
 import { MeuPage } from '../meu/meu';
+import { PeopleProvider } from '../../providers/people/people';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -14,7 +15,11 @@ export class TabsPage {
   tab2Root = EmprestarPage;
   tab3Root = MeuPage;
 
-  constructor() {
+  constructor(public peopleProvider: PeopleProvider) {
 
+  }
+
+  updateContent(){
+    this.peopleProvider.listarItensDisponiveis();
   }
 }
