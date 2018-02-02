@@ -31,7 +31,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    MapaPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
