@@ -11,7 +11,6 @@ export class PeopleProvider {
   
   }
 
-  // amanda fez isso, perguntar depois
   incializePeople(person) {
     person.itens = [new Item("Carregador", "Caregador de 3 watts", "imagemNotFound", "3 horas", "5 horas", 250, null, 2.4, true, "")];
     person.reputacao = -1;
@@ -39,6 +38,14 @@ export class PeopleProvider {
     }
 
     return this.itensDisponiveis;
+  }
+
+  userItens(){
+    let meusItens = [];
+
+    meusItens = this.people[this.usuarioIndex].itens;
+
+    return meusItens;
   }
 
 }

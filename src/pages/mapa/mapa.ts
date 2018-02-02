@@ -27,6 +27,10 @@ export class MapaPage {
   lat: number = 51.678418;
   lng: number = 7.809007;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.lat = this.navParams.get('latitude');
+    this.lng = this.navParams.get('longitude');
+    console.log("showing lat: " +this.lat + " long: " + this.lng);
+    
   }
 
   ionViewDidLoad() {

@@ -10,6 +10,7 @@
   <img src="{{person.foto}}" alt="">
   <h3>Usuário: {{person.user}}</h3>
   <h3>Contato: {{person.telefone}}</h3>
-  <h3>Reputação: {{person.reputacao}}</h3>
+  <h3 *ngIf="person.reputacao != -1">Reputação: {{person.reputacao}}</h3>
+  <h3 *ngIf="person.reputacao == -1">Reputação: pessoa não foi avaliada ainda</h3>
 
 </ion-content>

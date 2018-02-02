@@ -54,8 +54,8 @@ export class PegarPage {
 
   mapClick(local){
     let parametro = {
-      latitude: 0,
-      longitude: 0
+      latitude: local.latitude,
+      longitude: local.longitude
     };
     
     this.items = this.peopleProv.listarItensDisponiveis();

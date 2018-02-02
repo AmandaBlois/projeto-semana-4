@@ -14,6 +14,32 @@
 
 
 <ion-content padding>
-  <p>Espaço onde eu posso ver todos meus objetos cadastrados e quais já estão emprestados com alguém!</p>
+    <ion-list> 
+        <ion-card class="thing-card" *ngFor="let item of meusItens">
+          <ion-title>
+            <h1>{{item.nome}}</h1>
+            <h3>{{item.desc}}</h3>
+            <h3>
+              <ion-icon name='clock'></ion-icon>
+              {{item.tempoInicio}} até {{item.tempoFim}}
+              <br>
+              <ion-icon name='cash'></ion-icon>
+              <!-- TODO format preco -->
+              R${{item.preco}}/min
+            </h3>
+          </ion-title>
+          <div style="position: relative">
+            <img src="{{item.foto}}">
+          </div>
+    
+          <ion-item actions>
+            <button ion-button block color="danger" (click)="removerItem(item)">
+              Remover
+            </button>
+          </ion-item>
+        </ion-card>
+    
+      </ion-list>
+    
 
 </ion-content>

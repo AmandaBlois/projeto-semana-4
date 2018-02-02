@@ -18,6 +18,8 @@ import { PeopleProvider } from '../providers/people/people';
 // importando o mapa (mike)
 import { PerfilPage } from '../pages/perfil/perfil';
 import { AgmCoreModule } from '@agm/core';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { AgmCoreModule } from '@agm/core';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PeopleProvider,
     Camera,
-    PhotoLibrary
+    PhotoLibrary,
+    Geolocation
   ]
 })
 export class AppModule {}

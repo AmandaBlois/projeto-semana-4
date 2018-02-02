@@ -87,4 +87,7 @@
     <plugin name="cordova-plugin-photo-library" spec="^2.1.0">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="To choose photos" />
     </plugin>
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
 </widget>

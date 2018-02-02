@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the MeuPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { PeopleProvider } from '../../providers/people/people';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'meu.html',
 })
 export class MeuPage {
+  meusItens = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public people: PeopleProvider) {
+    this.meusItens = people.userItens();
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MeuPage');
+  }
+
+  removerItem(item){
+    //todo implement this
   }
 
 }

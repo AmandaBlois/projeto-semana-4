@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PeopleProvider } from '../../providers/people/people';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { TabsPage } from '../../pages/tabs/tabs';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @IonicPage()
 @Component({
@@ -14,8 +15,20 @@ export class PerfilPage {
   person = <any>{};
   fotoURI:string;
   fotoTirada = false;
+  latitude;
+  longitude;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, private camera: Camera, private geolocation: Geolocation) {
+    this.person.local = <any>{};
+    this.person.local.latitude = 0;
+    this.person.local.longitude = 0;
+
+    geolocation.getCurrentPosition().then((resp) => {
+      this.latitude = resp.coords.latitude;
+      this.longitude = resp.coords.longitude
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
   }
 
   ionViewDidLoad() {
@@ -24,6 +37,9 @@ export class PerfilPage {
 
   inserir(){
     this.person.foto = this.fotoURI;
+    this.person.local.longitude = this.longitude;
+    this.person.local.latitude = this.latitude;
+    console.log(this.person.local);
     this.peopleSave.incializePeople(this.person);
     this.navCtrl.push(TabsPage);
     
