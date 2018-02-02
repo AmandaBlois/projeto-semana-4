@@ -16,16 +16,8 @@
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
  
-  <!-- lista o resultado da busca -->
-  <!-- <ion-list *ngIf="userInput != ''">
-    <ion-item *ngFor="let item of items">
-      {{ item }}
-    </ion-item>
-  </ion-list> -->
-
-  <!-- lista tudo caso ninguem pesquise nada -->
-  <ion-list *ngIf="userInput == ''">
-    <ion-card class="thing-card" *ngFor="let item of items">
+  <ion-list> 
+    <ion-card class="thing-card" *ngFor="let item of resultadoBusca">
       <ion-title>
         <h1>{{item.nome}}</h1>
         <h3>{{item.desc}}</h3>
@@ -34,23 +26,28 @@
           {{item.tempoInicio}} até {{item.tempoFim}}
           <ion-icon name='cash'></ion-icon>
           <!-- TODO format preco -->
-          R$:{{item.preco}}/min
+          R${{item.preco}}/min
         </h3>
       </ion-title>
       <div style="position: relative">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3UkbyteFsx21X1Xe7gATr6fr3N34ckZ6FkdV3DkmKQ9CWUeQV">
+        <img src="{{item.dono.foto}}">
       </div>
 
       <ion-item>
           <ion-icon color="subtle" large item-start name='person'></ion-icon>
-          <h2>{{item.dono}}</h2>
-          <p>
-            5 
-            <ion-icon name='star'></ion-icon>
-            <ion-icon name='star'></ion-icon>
-            <ion-icon name='star'></ion-icon>
-            <ion-icon name='star'></ion-icon>
-            <ion-icon name='star'></ion-icon>
+          <h2>{{item.dono.nome}}</h2>
+          <p *ngIf="item.dono.reputacao != -1">
+            <ion-icon name='star' *ngIf="item.dono.reputacao >= 1"></ion-icon>
+            <ion-icon name='star' *ngIf="item.dono.reputacao >= 2"></ion-icon>
+            <ion-icon name='star' *ngIf="item.dono.reputacao >= 3"></ion-icon>
+            <ion-icon name='star' *ngIf="item.dono.reputacao >= 4"></ion-icon>
+            <ion-icon name='star' *ngIf="item.dono.reputacao >= 5"></ion-icon>
+            <ion-icon name='star-half' *ngIf="(item.dono.reputacao % 10) > 4"></ion-icon>
+
+            
+          </p>
+          <p *ngIf="item.dono.reputacao == -1">
+            sem avaliações
           </p>
         </ion-item>
 

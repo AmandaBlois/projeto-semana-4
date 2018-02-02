@@ -19,33 +19,44 @@ import { PerfilPage } from '../perfil/perfil';
 })
 export class PegarPage {
   items; // nosso vetor de itens
+  resultadoBusca = [];
   userInput:string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public peopleProv: PeopleProvider) {
-    this.items = peopleProv.listarItensDisponiveis();
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PegarPage');
+    this.navCtrl.push(PerfilPage);
+    this.items = this.peopleProv.listarItensDisponiveis();
     
   }
 
   getItems(ev) {
+
+    // updates the itens list
+    this.items = this.peopleProv.listarItensDisponiveis();
+
     // updates userInput variable
     this.userInput = ev.target.value;
 
     // Reset items back to all of the items
-    // this.initializeItems();
+    this.resultadoBusca = [];
+    for(let item of this.items){
+      this.resultadoBusca.push(item);
+    }
 
     // set val to the value of the ev target
-    // var val = ev.target.value;
+    let val = ev.target.value;
 
-    // if the value is an empty string don't filter the items
-    // if (val && val.trim() != '') {
-      // this.items = this.items.filter((item) => {
-        // return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      // })
-    // }
+    if (val && val.trim() != '') {
+      this.resultadoBusca = this.resultadoBusca.filter((item) => {
+        return (item.nome.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+     }
+
+     console.log(this.resultadoBusca);
   }
 
   mapClick(){
