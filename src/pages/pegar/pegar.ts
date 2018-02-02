@@ -18,7 +18,7 @@ export class PegarPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public peopleProv: PeopleProvider) {
     //todo: change the inicialization
-    
+    this.resultadoBusca = this.peopleProv.listarItensDisponiveis();
   }
 
   ionViewDidLoad() {
@@ -28,7 +28,6 @@ export class PegarPage {
   }
 
   getItems(ev) {
-
     // updates the itens list
     this.items = this.peopleProv.listarItensDisponiveis();
 
