@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PeopleProvider } from '../../providers/people/people';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { TabsPage } from '../../pages/tabs/tabs';
 
 @IonicPage()
 @Component({
@@ -24,12 +25,7 @@ export class PerfilPage {
   inserir(){
     this.person.foto = this.fotoURI;
     this.peopleSave.incializePeople(this.person);
-    this.navCtrl.pop();
-<<<<<<< HEAD
-  }
-
-=======
-    
+    this.navCtrl.push(TabsPage);
   }
 
   takeProfilePicture(){
@@ -51,6 +47,5 @@ export class PerfilPage {
 
   
   }
->>>>>>> c77390106106667cad80b9ca045ad5cfb1ca8cf2
 
 }

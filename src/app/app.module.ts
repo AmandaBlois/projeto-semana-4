@@ -10,6 +10,7 @@ import { PegarPage } from '../pages/pegar/pegar';
 import { EmprestarPage } from '../pages/emprestar/emprestar';
 import { MeuPage } from '../pages/meu/meu';
 import { MapaPage } from '../pages/mapa/mapa';
+import { PersonDetailPage } from '../pages/person-detail/person-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +27,8 @@ import { AgmCoreModule } from '@agm/core';
     EmprestarPage,
     MeuPage,
     MapaPage,
-    PerfilPage
+    PerfilPage,
+    PersonDetailPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { AgmCoreModule } from '@agm/core';
     MeuPage,
     TabsPage,
     MapaPage,
-    PerfilPage
+    PerfilPage,
+    PersonDetailPage
   ],
   providers: [
     StatusBar,

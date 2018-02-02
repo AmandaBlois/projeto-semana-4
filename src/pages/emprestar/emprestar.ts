@@ -28,7 +28,7 @@ export class EmprestarPage {
 
   inserir(){
     let person = this.people.people[this.people.usuarioIndex]
-    person-item.person.item.push(this.people.item);
+    person.person.item.push(this.people);
   }
 
 
