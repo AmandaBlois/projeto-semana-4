@@ -14,6 +14,39 @@
 
 
 <ion-content padding>
-  <p>tela de emprestar</p>
+    <ion-list>
+          
+        <ion-item>
+          <ion-label color="primary" fixed>objeto</ion-label>
+          <ion-input [(ngModel)]="item.nome"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label color="primary" fixed>descrição</ion-label>
+          <ion-input [(ngModel)]="item.desc"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" fixed>Foto</ion-label>
+          <ion-input readonly> <ion-icon name="checkmark"[color]="red" *ngIf="fotoTirada"></ion-icon></ion-input>
+          <button ion-button (click)="takeItemPicture()" item-end>Tirar</button>
+        
+          </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" fixed>Custo por hora</ion-label>
+            <ion-input [(ngModel)]="item.preco"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label color="primary" fixed>multa em cado de perda</ion-label>
+              <ion-input [(ngModel)]="item.multa"></ion-input>
+            </ion-item>
+
+    </ion-list>
+
+
+
+      <button ion-button (click)="inserir()">Salvar</button>
 
 </ion-content>

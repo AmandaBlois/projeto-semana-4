@@ -20,6 +20,10 @@ export class PeopleProvider {
     
   }
 
+  getUsuarioAtivo(){
+    return this.people[this.usuarioIndex];
+  }
+
   listarItensDisponiveis(){
     let i, j;
 

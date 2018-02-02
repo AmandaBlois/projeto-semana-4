@@ -42,7 +42,6 @@ export class PerfilPage {
     console.log(this.person.local);
     this.peopleSave.incializePeople(this.person);
     this.navCtrl.push(TabsPage);
-    
   }
 
   takeProfilePicture(){
