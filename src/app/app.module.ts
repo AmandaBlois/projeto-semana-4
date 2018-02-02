@@ -13,8 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PeopleProvider } from '../providers/people/people';
 // importando o mapa (mike)
-import { MapaPageModule } from '../pages/mapa/mapa.module';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -29,8 +29,10 @@ import { PerfilPage } from '../pages/perfil/perfil';
   ],
   imports: [
     BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyALixsuuHy_8BLqB2WSIOsw_kOEBM2cp0s'
+    }),
     IonicModule.forRoot(MyApp),
-    MapaPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
