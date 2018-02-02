@@ -36,7 +36,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
     EmprestarPage,
     MeuPage,
     TabsPage,
-    MapaPage
+    MapaPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,

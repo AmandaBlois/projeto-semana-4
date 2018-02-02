@@ -34,7 +34,7 @@
           {{item.tempoInicio}} até {{item.tempoFim}}
           <ion-icon name='cash'></ion-icon>
           <!-- TODO format preco -->
-          R$:{{item.preco}}/min
+          R${{item.preco}}/min
         </h3>
       </ion-title>
       <div style="position: relative">
@@ -43,14 +43,16 @@
 
       <ion-item>
           <ion-icon color="subtle" large item-start name='person'></ion-icon>
-          <h2>{{item.dono}}</h2>
-          <p>
-            5 
+          <h2>{{item.dono.nome}}</h2>
+          <p *ngIf="item.dono.reputacao != -1">
+            <ion-icon name='star' *ngIf="item.dono.reputacao >= 1"></ion-icon>
             <ion-icon name='star'></ion-icon>
             <ion-icon name='star'></ion-icon>
             <ion-icon name='star'></ion-icon>
             <ion-icon name='star'></ion-icon>
-            <ion-icon name='star'></ion-icon>
+          </p>
+          <p *ngIf="item.dono.reputacao == -1">
+            sem avaliações
           </p>
         </ion-item>
 

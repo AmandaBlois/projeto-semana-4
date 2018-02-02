@@ -27,6 +27,7 @@ export class PegarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PegarPage');
+    this.navCtrl.push(PerfilPage);
     
   }
 
