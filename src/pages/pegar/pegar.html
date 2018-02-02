@@ -30,10 +30,10 @@
         </h3>
       </ion-title>
       <div style="position: relative">
-        <img src="{{item.dono.foto}}">
+        <img src="{{item.foto}}">
       </div>
 
-      <ion-item (click)="pessoaClick()">
+      <ion-item (click)="pessoaClick(item.dono)">
           <ion-icon color="subtle" large item-start name='person'></ion-icon>
           <h2>{{item.dono.nome}}</h2>
           <p *ngIf="item.dono.reputacao != -1">
@@ -50,7 +50,7 @@
           </p>
         </ion-item>
 
-      <ion-item (click)="mapClick()">
+      <ion-item (click)="mapClick(item.dono.local)">
         <ion-icon color="subtle" large item-start name='map'></ion-icon>
         <h2>M.A.S.P.</h2>
         <p>Avenida Paulista, 3349</p>

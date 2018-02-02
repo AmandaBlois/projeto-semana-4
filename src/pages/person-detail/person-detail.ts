@@ -19,7 +19,8 @@ export class PersonDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log("pagina de datalhes do usuario construioda");
-    this.navParams.get('userParams');
+    this.person = this.navParams.get('personObj');
+    console.log(this.person);
   }
 
   ionViewDidLoad() {

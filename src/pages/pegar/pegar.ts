@@ -17,6 +17,7 @@ export class PegarPage {
   userInput:string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public peopleProv: PeopleProvider) {
+    //todo: change the inicialization
     
   }
 
@@ -52,14 +53,19 @@ export class PegarPage {
      console.log(this.resultadoBusca);
   }
 
-  mapClick(){
+  mapClick(local){
+    let parametro = {
+      latitude: 0,
+      longitude: 0
+    };
+    
     this.items = this.peopleProv.listarItensDisponiveis();
-    this.navCtrl.push(MapaPage);
+    this.navCtrl.push(MapaPage, parametro);
   }
 
-  pessoaClick() {
+  pessoaClick(person) {
     let parametro = {
-      texto: "textoasddisajjiosa"
+      personObj: person
     };
 
     this.navCtrl.push(PersonDetailPage, parametro);
