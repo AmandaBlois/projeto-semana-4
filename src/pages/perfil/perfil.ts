@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PeopleProvider } from '../../providers/people/people';
-
-/**
- * Generated class for the PerfilPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @IonicPage()
 @Component({
@@ -15,8 +9,12 @@ import { PeopleProvider } from '../../providers/people/people';
   templateUrl: 'perfil.html',
 })
 export class PerfilPage {
-  person = {};
-  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider) {
+  //todo: import proper class
+  person = <any>{};
+  fotoURI:string;
+  fotoTirada = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, private camera: Camera) {
   }
 
   ionViewDidLoad() {
@@ -24,9 +22,30 @@ export class PerfilPage {
   }
 
   inserir(){
+    this.person.foto = this.fotoURI;
     this.peopleSave.incializePeople(this.person);
     this.navCtrl.pop();
     
+  }
+
+  takeProfilePicture(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      //img is a file uri
+      this.fotoURI = imageData;
+      this.fotoTirada = true;
+
+     }, (err) => {
+      // Handle error
+     });
+
+  
   }
 
 }

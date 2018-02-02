@@ -13,9 +13,7 @@ export class PeopleProvider {
   itensDisponiveis = [];
 
   constructor() {
-    console.log('PeopleProvider loaded!');
-    // this.incializePeople();
-    console.log("people inicialized");
+  
   }
 
   // incializePeople() {
@@ -31,40 +29,22 @@ export class PeopleProvider {
 
   // amanda fez isso, perguntar depois
   incializePeople(person) {
-    person.itens = [];
+    person.itens = [new Item("Carregador", "Caregador de 3 watts", "imagemNotFound", "3 horas", "5 horas", 250, null, 2.4, true, "")];
+    person.reputacao = 3.7;
 
     this.people.push(person);
-    console.log(person);
-  }
-
-  encontraPessoaNome(nomeProcurado){
-    for(let i = 0; i < this.people.length; i++){
-      if(nomeProcurado == this.people[i].nome) {
-        return this.people[i];
-      }
-    }
-
-    return "-1";
-  }
-
-  encontraPessoaUser(nomeProcurado){
-    for(let i = 0; i < this.people.length; i++){
-      if(nomeProcurado == this.people[i].user) {
-        return this.people[i];
-      }
-    }
-
-    return "-1";
   }
 
   listarItensDisponiveis(){
     let i, j;
+
     this.itensDisponiveis = [];
-    console.log(this.people);
+
     for(i = 0; i < this.people.length; i++){
-      console.log("Searching person: " + this.people[i].nome + ".");
+
+      
       for(j = 0; this.people[i].itens != null && j < this.people[i].itens.length; j++){
-        console.log(this.people[i]);
+
         if(this.people[i].itens[j].disp == true) {
           this.people[i].itens[j].dono = this.people[i];
           this.itensDisponiveis.push(this.people[i].itens[j]);

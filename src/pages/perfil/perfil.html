@@ -6,51 +6,58 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>perfil</ion-title>
+  <ion-navbar hideBackButton *navbar>
+    <ion-title>Cadastro</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-content padding>
-        <ion-list>
-          
-          <ion-item>
-            <ion-label color="primary" fixed>User name </ion-label>
-            <ion-input [(ngModel)]="person.user"></ion-input>
-          </ion-item>
+  <ion-content padding>
+    <h1>
+      Cadastro
+    </h1>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label color="primary" fixed>Username </ion-label>
+        <ion-input [(ngModel)]="person.user"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" fixed>Nome</ion-label>
+        <ion-input [(ngModel)]="person.nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" fixed>Telefone</ion-label>
+        <ion-input [(ngModel)]="person.telefone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" fixed>Endereço</ion-label>
+        <ion-input [(ngModel)]="person.local"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" fixed>CPF</ion-label>
+        <ion-input [(ngModel)]="person.cpf"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <!-- inserir botao de camera -->
+        <ion-label color="primary" fixed>Foto</ion-label>
+          <ion-input readonly> <ion-icon name="checkmark" *ngIf="fotoTirada"></ion-icon></ion-input>
+          <button ion-button (click)="takeProfilePicture()" item-end>Tirar</button>
         
-          <ion-item>
-            <ion-label color="primary" fixed> nome verdadeiro</ion-label>
-            <ion-input [(ngModel)]="person.nome"></ion-input>
-          </ion-item>
 
-          <ion-item>
-              <ion-label color="primary" fixed>telefone</ion-label>
-              <ion-input [(ngModel)]="person.telefone"></ion-input>
-            </ion-item>
-        </ion-list>
+      </ion-item>
 
-        <ion-item>
-            <ion-label color="primary" fixed>local</ion-label>
-            <ion-input [(ngModel)]="person.local"></ion-input>
-          </ion-item>
-      
-          <ion-item>
-              <ion-label color="primary" fixed>Foto</ion-label>
-              <ion-input [(ngModel)]="person.foto"></ion-input>
-            </ion-item>
+    </ion-list>
 
-            <ion-item>
-                <ion-label color="primary" fixed>cpf</ion-label>
-                <ion-input [(ngModel)]="person.cpf"></ion-input>
-              </ion-item>
-
-
-        <button ion-button (click)="inserir()">Salvar</button>
-        <button ion-button (click)="inserir()">Salvar</button>
-      </ion-content>
+    <button ion-button (click)="inserir()" block>Salvar</button>
+  </ion-content>
 
 </ion-content>
