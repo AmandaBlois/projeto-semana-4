@@ -14,39 +14,51 @@
 
 
 <ion-content padding>
-    <ion-list>
-          
-        <ion-item>
-          <ion-label color="primary" fixed>Objeto</ion-label>
-          <ion-input [(ngModel)]="item.nome"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label color="primary" fixed>Descrição</ion-label>
-          <ion-input [(ngModel)]="item.desc"></ion-input>
-        </ion-item>
+  <ion-list>
 
-        <ion-item>
-            <ion-label color="primary" fixed>Foto</ion-label>
-          <ion-input readonly> <ion-icon name="checkmark"[color]="red" *ngIf="fotoTirada"></ion-icon></ion-input>
-          <button ion-button (click)="takeItemPicture()" item-end>Tirar</button>
-        
-          </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Objeto</ion-label>
+      <ion-input [(ngModel)]="item.nome"></ion-input>
+    </ion-item>
 
-        <ion-item>
-            <ion-label color="primary" fixed>Custo/hora</ion-label>
-            <ion-input [(ngModel)]="item.preco"></ion-input>
-          </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Descrição</ion-label>
+      <ion-input [(ngModel)]="item.desc"></ion-input>
+    </ion-item>
 
-          <ion-item>
-              <ion-label color="primary" fixed>Multa</ion-label>
-              <ion-input [(ngModel)]="item.multa"></ion-input>
-            </ion-item>
+    <ion-item>
+      <ion-label color="primary" fixed>Foto</ion-label>
+      <ion-input readonly>
+        <ion-icon name="checkmark" [color]="red" *ngIf="fotoTirada"></ion-icon>
+      </ion-input>
+      <button ion-button (click)="takeItemPicture()" item-end>Tirar</button>
 
-    </ion-list>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" fixed>Custo/hora</ion-label>
+      <ion-input [(ngModel)]="item.preco"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" fixed>Hora inicio:</ion-label>
+        <ion-input [(ngModel)]="item.tempoInicio"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label color="primary" fixed>Hora fim:</ion-label>
+        <ion-input [(ngModel)]="item.tempoFim"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary" fixed>Multa </ion-label>
+      <ion-input [(ngModel)]="item.multa"></ion-input>
+    </ion-item>
+
+  </ion-list>
 
 
 
-      <button ion-button (click)="inserir()">Salvar</button>
+  <button ion-button (click)="inserir()">Salvar</button>
 
 </ion-content>
