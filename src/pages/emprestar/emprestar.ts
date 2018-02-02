@@ -29,9 +29,11 @@ export class EmprestarPage {
 
   inserir(){
     let usuario = this.peopleProvider.getUsuarioAtivo();
+    this.item.disp = true;
     usuario.itens.push(this.item);
     console.log(usuario);
   }
+  
   takeItemPicture(){
     const options: CameraOptions = {
       quality: 100,
@@ -40,6 +42,16 @@ export class EmprestarPage {
       mediaType: this.camera.MediaType.PICTURE
     }
 
+    this.camera.getPicture(options).then((imageData) => {
+      //img is a file uri
+      this.item.img = imageData;
 
+     }, (err) => {
+      // Handle error
+     });
+
+
+    
+  }
 }
 

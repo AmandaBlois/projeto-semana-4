@@ -12,7 +12,7 @@ export class PeopleProvider {
   }
 
   incializePeople(person) {
-    person.itens = [new Item("Carregador", "Caregador de 3 watts", "imagemNotFound", "3 horas", "5 horas", 250, null, 2.4, true, "")];
+    person.itens = [];
     person.reputacao = -1;
 
     this.usuarioIndex = this.people.length; // guarda a posicao do usuario

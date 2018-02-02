@@ -27,7 +27,7 @@ export class PegarPage {
     
   }
 
-  getItems(ev) {
+  getItems(ev) {  
     // updates the itens list
     this.items = this.peopleProv.listarItensDisponiveis();
 
@@ -37,6 +37,7 @@ export class PegarPage {
     // Reset items back to all of the items
     this.resultadoBusca = [];
     for(let item of this.items){
+      console.log(this.items);
       this.resultadoBusca.push(item);
     }
 
