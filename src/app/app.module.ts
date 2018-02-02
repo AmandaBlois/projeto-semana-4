@@ -22,12 +22,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
     PegarPage,
     EmprestarPage,
     MeuPage,
-<<<<<<< HEAD
-    MapaPage
-=======
+    MapaPage,
     PerfilPage
-
->>>>>>> d99ea4dd8f579470365e3b8540cb404659465040
   ],
   imports: [
     BrowserModule,
@@ -40,11 +36,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
     EmprestarPage,
     MeuPage,
     TabsPage,
-<<<<<<< HEAD
     MapaPage
-=======
-    PerfilPage
->>>>>>> d99ea4dd8f579470365e3b8540cb404659465040
   ],
   providers: [
     StatusBar,
