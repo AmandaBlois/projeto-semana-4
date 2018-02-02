@@ -11,9 +11,10 @@ import { Person, Item} from '../../models/person-item';
   templateUrl: 'emprestar.html',
 })
 export class EmprestarPage {
+  item:Item = new Item('','','','','','','','','','');
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public people: PeopleProvider, private photoLibrary: PhotoLibrary, private camera: Camera) {
+    public peopleProvider: PeopleProvider, private photoLibrary: PhotoLibrary, private camera: Camera) {
       const options: CameraOptions = {
         quality: 100,
         destinationType: this.camera.DestinationType.FILE_URI,
@@ -27,8 +28,9 @@ export class EmprestarPage {
   }
 
   inserir(){
-    let person = this.people.people[this.people.usuarioIndex]
-    person.person.item.push(this.people);
+    let usuario = this.peopleProvider.getUsuarioAtivo();
+    usuario.itens.push(this.item);
+    console.log(usuario);
   }
 
 
