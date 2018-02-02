@@ -27,8 +27,10 @@
         </ion-item>
 
         <ion-item>
-            <ion-label color="primary" fixed>foto</ion-label>
-            <ion-input [(ngModel)]="item.img"></ion-input>
+            <ion-label color="primary" fixed>Foto</ion-label>
+          <ion-input readonly> <ion-icon name="checkmark"[color]="red" *ngIf="fotoTirada"></ion-icon></ion-input>
+          <button ion-button (click)="takeItemPicture()" item-end>Tirar</button>
+        
           </ion-item>
 
         <ion-item>
@@ -40,6 +42,8 @@
               <ion-label color="primary" fixed>multa em cado de perda</ion-label>
               <ion-input [(ngModel)]="item.multa"></ion-input>
             </ion-item>
+
+    </ion-list>
 
 
 

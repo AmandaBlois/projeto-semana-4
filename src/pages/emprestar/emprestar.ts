@@ -32,6 +32,13 @@ export class EmprestarPage {
     usuario.itens.push(this.item);
     console.log(usuario);
   }
+  takeItemPicture(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
 
 
 }
