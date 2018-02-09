@@ -4,6 +4,8 @@ import { PeopleProvider } from '../../providers/people/people';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HttpClient } from '@angular/common/http';
+import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -17,11 +19,12 @@ export class PerfilPage {
   fotoTirada = false;
   latitude;
   longitude;
+  informacao = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, private camera: Camera, private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, private camera: Camera, private geolocation: Geolocation, public http: HttpClient, private alertCtrl: AlertController) {
     this.person.local = <any>{};
-    this.person.local.latitude = 0;
-    this.person.local.longitude = 0;
+    this.person.local.lat = 0;
+    this.person.local.lng = 0;
 
     geolocation.getCurrentPosition().then((resp) => {
       this.latitude = resp.coords.latitude;
@@ -29,6 +32,7 @@ export class PerfilPage {
      }).catch((error) => {
        console.log('Error getting location', error);
      });
+
   }
 
   ionViewDidLoad() {
@@ -37,11 +41,33 @@ export class PerfilPage {
 
   inserir(){
     this.person.foto = this.fotoURI;
-    this.person.local.longitude = this.longitude;
-    this.person.local.latitude = this.latitude;
+    this.person.local.lng = this.longitude;
+    this.person.local.lat = this.latitude;
     console.log(this.person.local);
-    this.peopleSave.incializePeople(this.person);
-    this.navCtrl.push(TabsPage);
+
+    this.person.foto = 'ha!'; //REMOVE THIS PLS, ONLY FOR BRWOSER TESTING
+    this.http.post<any>('http://http://138.68.226.214:3000/cadastro', this.person).subscribe((data) => {
+      console.log(data);
+      if(data.hasOwnProperty('code') == true) {
+        console.log("Erro com o login...");
+        if(data.code = 11000){
+          this.informacao = 'Nome de usuário já está em uso';
+        } 
+        
+      } else {
+        let alert = this.alertCtrl.create({
+          title: 'Cadastro feito',
+          subTitle: 'Faça login para entrar!',
+          buttons: ['Okay']
+        });
+        alert.present();
+        console.log("Post sucessful!");
+        this.peopleSave.incializePeople(this.person);
+        this.navCtrl.pop();
+      }
+    });
+
+    
   }
 
   takeProfilePicture(){

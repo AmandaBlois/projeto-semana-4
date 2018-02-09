@@ -6,6 +6,7 @@ export class PeopleProvider {
   people = [];
   itensDisponiveis = [];
   usuarioIndex = -1;
+  userAtual;
 
   constructor() {
   
@@ -21,8 +22,10 @@ export class PeopleProvider {
   }
 
   getUsuarioAtivo(){
-    return this.people[this.usuarioIndex];
+    // return this.people[this.usuarioIndex];
+    return this.userAtual;
   }
+
 
   listarItensDisponiveis(){
     let i, j;
@@ -50,6 +53,10 @@ export class PeopleProvider {
     meusItens = this.people[this.usuarioIndex].itens;
 
     return meusItens;
+  }
+
+  updateUserAtual(user) {
+    this.userAtual = user;
   }
 
 }

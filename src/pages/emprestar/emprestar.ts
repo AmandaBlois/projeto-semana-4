@@ -4,6 +4,7 @@ import { PeopleProvider } from '../../providers/people/people';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Person, Item} from '../../models/person-item';
+import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
 @Component({
@@ -14,7 +15,8 @@ export class EmprestarPage {
   item:Item = new Item('','','','','','','','','','');
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public peopleProvider: PeopleProvider, private photoLibrary: PhotoLibrary, private camera: Camera) {
+    public peopleProvider: PeopleProvider, private photoLibrary: PhotoLibrary, private camera: Camera,
+    public http : HttpClient) {
       const options: CameraOptions = {
         quality: 100,
         destinationType: this.camera.DestinationType.FILE_URI,
@@ -30,8 +32,21 @@ export class EmprestarPage {
   inserir(){
     let usuario = this.peopleProvider.getUsuarioAtivo();
     this.item.disp = true;
-    usuario.itens.push(this.item);
+    this.item.locador = ' ';
+    this.item.imagem = ' ';
+    this.item.dono = usuario.username;
+
+    this.http.post('http://localhost:3000/item', this.item).subscribe((data) => {
+      console.log(data);
+      
+      console.log("Post sucessful!");
+      
+    });
+
+
+    // usuario.itens.push(this.item);
     this.item =  new Item('','','','','','','','','','');
+    this.item.descricao = '';
   }
   
   takeItemPicture(){
@@ -44,7 +59,7 @@ export class EmprestarPage {
 
     this.camera.getPicture(options).then((imageData) => {
       //img is a file uri
-      this.item.img = imageData;
+      this.item.imagem = imageData;
 
      }, (err) => {
       // Handle error

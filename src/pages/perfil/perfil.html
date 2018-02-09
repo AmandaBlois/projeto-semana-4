@@ -17,7 +17,12 @@
 
       <ion-item>
         <ion-label color="primary" fixed>Username </ion-label>
-        <ion-input [(ngModel)]="person.user"></ion-input>
+        <ion-input [(ngModel)]="person.username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" fixed>Senha </ion-label>
+        <ion-input [(ngModel)]="person.senha"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -53,6 +58,7 @@
     </ion-list>
 
     <button ion-button (click)="inserir()" block>Salvar</button>
+    {{informacao}}
   </ion-content>
 
 </ion-content>

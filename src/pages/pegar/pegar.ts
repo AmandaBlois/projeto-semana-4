@@ -5,6 +5,7 @@ import { Person, Item} from '../../models/person-item';
 import { PeopleProvider } from '../../providers/people/people';
 import { PerfilPage } from '../perfil/perfil';
 import { PersonDetailPage } from '../person-detail/person-detail';
+import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
 @Component({
@@ -16,7 +17,7 @@ export class PegarPage {
   resultadoBusca = [];
   userInput:string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleProv: PeopleProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleProv: PeopleProvider, public http : HttpClient) {
     //todo: change the inicialization
     this.resultadoBusca = this.peopleProv.listarItensDisponiveis();
   }
@@ -29,7 +30,13 @@ export class PegarPage {
 
   getItems(ev) {  
     // updates the itens list
-    this.items = this.peopleProv.listarItensDisponiveis();
+    // this.items = this.peopleProv.listarItensDisponiveis();
+    this.http.get<any>('http://http://138.68.226.214:3000/getItens/').subscribe(
+      (dados) => {
+        console.log(dados);
+        this.items = dados;
+      }
+    );
 
     // updates userInput variable
     this.userInput = ev.target.value;
@@ -70,5 +77,6 @@ export class PegarPage {
 
     this.navCtrl.push(PersonDetailPage, parametro);
   }
+
 
 }

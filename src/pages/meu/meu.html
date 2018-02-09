@@ -14,6 +14,7 @@
 
 
 <ion-content padding>
+  Mostrando os itens de {{usuario}}
     <ion-list> 
         <ion-card class="thing-card" *ngFor="let item of meusItens">
           <ion-title>
@@ -41,5 +42,5 @@
     
       </ion-list>
     
-
+      <button ion-button (click)="atualizarLista()"> Atualizar</button>
 </ion-content>

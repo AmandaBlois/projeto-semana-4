@@ -24,6 +24,8 @@ export class Item{
     nome:string;
     desc:string;
     img;
+    imagem;
+    descricao;
     tempoInicio;
     tempoFim;
     preco:number;

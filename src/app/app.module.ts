@@ -4,6 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Camera } from '@ionic-native/camera';
 import { PhotoLibrary } from '@ionic-native/photo-library';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { PegarPage } from '../pages/pegar/pegar';
@@ -11,6 +13,7 @@ import { EmprestarPage } from '../pages/emprestar/emprestar';
 import { MeuPage } from '../pages/meu/meu';
 import { MapaPage } from '../pages/mapa/mapa';
 import { PersonDetailPage } from '../pages/person-detail/person-detail';
+import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,7 +33,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     MeuPage,
     MapaPage,
     PerfilPage,
-    PersonDetailPage
+    PersonDetailPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { Geolocation } from '@ionic-native/geolocation';
       apiKey: 'AIzaSyALixsuuHy_8BLqB2WSIOsw_kOEBM2cp0s'
     }),
     IonicModule.forRoot(MyApp),
+    HttpClientModule
 
   ],
   bootstrap: [IonicApp],
@@ -49,7 +54,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     TabsPage,
     MapaPage,
     PerfilPage,
-    PersonDetailPage
+    PersonDetailPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
