@@ -28,7 +28,7 @@ export class LoginPage {
 
   logar(){
     this.informacao = "Logando...";
-    this.http.post('http://http://138.68.226.214:3000/login', this.person).subscribe((data) => {
+    this.http.post('http://138.68.226.214:3000/login', this.person).subscribe((data) => {
       console.log(data);
       if(!data) {
         this.informacao = "Erro acessando o servidor...";

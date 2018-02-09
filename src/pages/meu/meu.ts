@@ -30,7 +30,7 @@ export class MeuPage {
     this.usuario = this.people.getUsuarioAtivo().username;
     console.log(this.usuario);
 
-    this.http.get<any>('http://http://138.68.226.214:3000/getMeusItens/'+this.usuario).subscribe(
+    this.http.get<any>('http://138.68.226.214:3000/getMeusItens/'+this.usuario).subscribe(
       (dados) => {
         console.log(dados);
         this.meusItens = dados;

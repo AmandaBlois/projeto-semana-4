@@ -46,7 +46,7 @@ export class PerfilPage {
     console.log(this.person.local);
 
     this.person.foto = 'ha!'; //REMOVE THIS PLS, ONLY FOR BRWOSER TESTING
-    this.http.post<any>('http://http://138.68.226.214:3000/cadastro', this.person).subscribe((data) => {
+    this.http.post<any>('http://138.68.226.214:3000/cadastro', this.person).subscribe((data) => {
       console.log(data);
       if(data.hasOwnProperty('code') == true) {
         console.log("Erro com o login...");

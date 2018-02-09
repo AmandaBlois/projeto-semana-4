@@ -31,7 +31,7 @@ export class PegarPage {
   getItems(ev) {  
     // updates the itens list
     // this.items = this.peopleProv.listarItensDisponiveis();
-    this.http.get<any>('http://http://138.68.226.214:3000/getItens/').subscribe(
+    this.http.get<any>('http://138.68.226.214:3000/getItens/').subscribe(
       (dados) => {
         console.log(dados);
         this.items = dados;

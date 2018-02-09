@@ -36,7 +36,7 @@ export class EmprestarPage {
     this.item.imagem = ' ';
     this.item.dono = usuario.username;
 
-    this.http.post('http://localhost:3000/item', this.item).subscribe((data) => {
+    this.http.post('http://138.68.226.214:3000/item', this.item).subscribe((data) => {
       console.log(data);
       
       console.log("Post sucessful!");
