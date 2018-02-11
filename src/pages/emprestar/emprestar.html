@@ -1,21 +1,11 @@
-<!--
-  Generated template for the EmprestarPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Emprestar</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
   <ion-list>
-
     <ion-item>
       <ion-label color="primary" fixed>Objeto</ion-label>
       <ion-input [(ngModel)]="item.nome"></ion-input>
@@ -27,16 +17,16 @@
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary" fixed>Foto</ion-label>
-      <ion-input readonly>
-        <ion-icon name="checkmark" [color]="red" *ngIf="fotoTirada"></ion-icon>
-      </ion-input>
-      <button ion-button (click)="takeItemPicture()" item-end>Tirar</button>
-
+      <ion-label color="primary" fixed>Foto
+        <!-- <ion-icon name="checkmark" [color]="red" ></ion-icon> -->
+      </ion-label>
+      <button ion-button (click)="takeItemPicture()" *ngIf="fotoTirada == false" item-end>Tirar</button>
+      <button ion-button (click)="takeItemPicture()" *ngIf="fotoTirada == true" item-end>Substituir</button>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary" fixed>Custo/hora</ion-label>
+      <!-- TODO: FORMAT MONEY INPUT -->
       <ion-input [(ngModel)]="item.preco"></ion-input>
     </ion-item>
 
@@ -56,8 +46,6 @@
     </ion-item>
 
   </ion-list>
-
-
 
   <button ion-button (click)="inserir()">Salvar</button>
 

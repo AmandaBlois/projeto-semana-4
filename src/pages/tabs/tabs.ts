@@ -10,7 +10,6 @@ import { PeopleProvider } from '../../providers/people/people';
 })
 export class TabsPage {
 
-
   tab1Root = PegarPage;
   tab2Root = EmprestarPage;
   tab3Root = MeuPage;

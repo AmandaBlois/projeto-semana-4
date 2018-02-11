@@ -6,6 +6,7 @@ import { Camera } from '@ionic-native/camera';
 import { PhotoLibrary } from '@ionic-native/photo-library';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { PegarPage } from '../pages/pegar/pegar';
@@ -42,8 +43,8 @@ import { Geolocation } from '@ionic-native/geolocation';
       apiKey: 'AIzaSyALixsuuHy_8BLqB2WSIOsw_kOEBM2cp0s'
     }),
     IonicModule.forRoot(MyApp),
-    HttpClientModule
-
+    HttpClientModule,
+    CurrencyMaskModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
