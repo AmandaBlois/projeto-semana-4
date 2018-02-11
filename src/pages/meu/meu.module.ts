@@ -10,4 +10,5 @@ import { MeuPage } from './meu';
     IonicPageModule.forChild(MeuPage),
   ],
 })
+
 export class MeuPageModule {}

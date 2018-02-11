@@ -15,11 +15,13 @@ export class TabsPage {
   tab2Root = EmprestarPage;
   tab3Root = MeuPage;
 
-  constructor(public peopleProvider: PeopleProvider) {
+  constructor(public people : PeopleProvider) { }
 
+  updateUserItens(){
+    this.people.updateUserItens();
   }
 
-  updateContent(){
-    this.peopleProvider.listarItensDisponiveis();
+  updateItensFeed(){
+    this.people.updateItensFeed();
   }
 }

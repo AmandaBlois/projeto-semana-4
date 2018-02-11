@@ -21,7 +21,10 @@ export class PerfilPage {
   longitude;
   informacao = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, private camera: Camera, private geolocation: Geolocation, public http: HttpClient, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public peopleSave: PeopleProvider, 
+    private camera: Camera, private geolocation: Geolocation, public http: HttpClient, 
+    private alertCtrl: AlertController) {
+
     this.person.local = <any>{};
     this.person.local.lat = 0;
     this.person.local.lng = 0;
@@ -46,7 +49,7 @@ export class PerfilPage {
     console.log(this.person.local);
 
     this.person.foto = 'ha!'; //REMOVE THIS PLS, ONLY FOR BRWOSER TESTING
-    this.http.post<any>('http://138.68.226.214:3000/cadastro', this.person).subscribe((data) => {
+    this.http.post<any>('http://159.65.79.228:3000/cadastro', this.person).subscribe((data) => {
       console.log(data);
       if(data.hasOwnProperty('code') == true) {
         console.log("Erro com o login...");
@@ -62,12 +65,9 @@ export class PerfilPage {
         });
         alert.present();
         console.log("Post sucessful!");
-        this.peopleSave.incializePeople(this.person);
         this.navCtrl.pop();
       }
     });
-
-    
   }
 
   takeProfilePicture(){
