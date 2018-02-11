@@ -1,38 +1,63 @@
 <ion-header>
+    <ion-navbar no-border-bottom>
+        <ion-title>
+          Meu perfil
+        </ion-title>
+    </ion-navbar>
 
-  <ion-navbar>
-    <ion-title>Minhas Coisas</ion-title>
-  </ion-navbar>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="menu">
+          <ion-segment-button value="perfil">
+            Perfil
+          </ion-segment-button>
+          <ion-segment-button value="comigo">
+            Comigo
+          </ion-segment-button>
+          <ion-segment-button value="comoutros">
+            Com outros
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+  </ion-header>
 
-</ion-header>
 
 
-<ion-content padding>
-  Mostrando os itens de {{currentUser.nome}}
-  <img [src]="'data:image/jpeg;base64,'+currentUser.foto">
-    <ion-list> 
-        <ion-card class="thing-card" *ngFor="let item of meusItens">
-          <ion-title>
-            <h1>{{item.nome}}</h1>
-            <h3>{{item.desc}}</h3>
-            <h3>
-              <ion-icon name='clock'></ion-icon>
-              {{item.tempoInicio}} até {{item.tempoFim}}
-              <br>
-              <ion-icon name='cash'></ion-icon>
-              <!-- TODO format preco -->
-              R${{item.preco}}/min
-            </h3>
-          </ion-title>
-          <div style="position: relative">
-            <img [src]="'data:image/jpeg;base64,'+item.imagem">
-          </div>
+  <ion-content>
+      <div [ngSwitch]="menu">
+        <div *ngSwitchCase="'perfil'">
+            Nome: {{currentUser.nome}}
+            Foto: <img [src]="'data:image/jpeg;base64,'+currentUser.foto">
+        </div>
     
-          <ion-item actions>
-            <button ion-button block color="danger" (click)="removerItem(item)">
-              Remover
-            </button>
-          </ion-item>
-        </ion-card>
-      </ion-list>
-</ion-content>
+        <ion-list *ngSwitchCase="'comigo'">
+            <ion-list> 
+                <ion-card class="thing-card" *ngFor="let item of meusItens">
+                    <ion-title>
+                    <h1>{{item.nome}}</h1>
+                    <h3>{{item.desc}}</h3>
+                    <h3>
+                        <ion-icon name='clock'></ion-icon>
+                        {{item.tempoInicio}} até {{item.tempoFim}}
+                        <br>
+                        <ion-icon name='cash'></ion-icon>
+                        <!-- TODO format preco -->
+                        R${{item.preco}}/min
+                    </h3>
+                    </ion-title>
+                    <div style="position: relative">
+                        <img [src]="'data:image/jpeg;base64,'+item.imagem">
+                    </div>
+                    <ion-item actions>
+                    <button ion-button block color="danger" (click)="removerItem(item)">
+                        Remover
+                    </button>
+                    </ion-item>
+                </ion-card>
+            </ion-list>
+        </ion-list>
+    
+        <ion-list *ngSwitchCase="'comoutros'">
+          
+        </ion-list>
+      </div>
+  </ion-content>

@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { CurrencyPipe } from '@angular/common';
 import { AlertController } from 'ionic-angular';
 import { Events } from 'ionic-angular';
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+import { setDOM } from '@angular/platform-browser/src/dom/dom_adapter';
 
 @IonicPage()
 @Component({
@@ -28,6 +31,7 @@ export class EmprestarPage {
       this.item.disp = true;
       this.item.locador = ' ';
       this.item.dono = this.currentUser.username;
+      this.resetItemForm();
 
       // listen to item insert reponse
       this.events.subscribe('insertItemStatus', (status) => {
@@ -59,15 +63,7 @@ export class EmprestarPage {
           });
           alert.present();
 
-          // reset item form
-          this.item.nome = '';
-          this.item.descricao = '';
-          this.item.tempoInicio = '';
-          this.item.tempoFim = '';
-          this.item.preco = '';
-          this.item.multa = '';
-          this.item.imagem = '';
-          this.fotoTirada = false;
+          this.resetItemForm();
 
         } else if(status.mongo == 1 && status.userInput == 0) {
           // database rejected input 
@@ -85,6 +81,26 @@ export class EmprestarPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EmprestarPage');
+  }
+
+  resetItemForm(){
+    // reset item form
+    this.item.nome = '';
+    this.item.descricao = '';
+    this.item.preco = '';
+    this.item.multa = '';
+    this.item.imagem = 'ho'; // enable this to test in browser
+    this.fotoTirada = false;
+
+    // set inicial data
+    // TODO add time validator
+    let myDate = new Date();
+    let nowHours = myDate.getHours();
+    let nowMinutes = myDate.getMinutes();
+    let nowString = String(nowHours) + ':' + String(nowMinutes);
+
+    this.item.tempoInicio = nowString;
+    this.item.tempoFim = nowString;
   }
 
   inserir(){

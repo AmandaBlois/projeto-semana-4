@@ -32,12 +32,12 @@
 
     <ion-item>
         <ion-label color="primary" fixed>Hora inicio:</ion-label>
-        <ion-input [(ngModel)]="item.tempoInicio"></ion-input>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="item.tempoInicio"></ion-datetime>
     </ion-item>
 
     <ion-item>
         <ion-label color="primary" fixed>Hora fim:</ion-label>
-        <ion-input [(ngModel)]="item.tempoFim"></ion-input>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="item.tempoFim"></ion-datetime>
     </ion-item>
 
     <ion-item>

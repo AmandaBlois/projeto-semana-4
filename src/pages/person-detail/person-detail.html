@@ -7,8 +7,8 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="{{person.foto}}" alt="">
-  <h3>Usuário: {{person.user}}</h3>
+  <img [src]="'data:image/jpeg;base64,'+person.foto">
+  <h3>Usuário: {{person.username}}</h3>
   <h3>Contato: {{person.telefone}}</h3>
   <h3 *ngIf="person.reputacao != -1">Reputação: {{person.reputacao}}</h3>
   <h3 *ngIf="person.reputacao == -1">Reputação: pessoa não foi avaliada ainda</h3>

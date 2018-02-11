@@ -70,8 +70,8 @@ export class PegarPage {
 
   mapClick(local){
     let parametro = {
-      latitude: local.latitude,
-      longitude: local.longitude
+      latitude: local.lat,
+      longitude: local.lng
     };
     
     this.navCtrl.push(MapaPage, parametro);
@@ -84,6 +84,4 @@ export class PegarPage {
 
     this.navCtrl.push(PersonDetailPage, parametro);
   }
-
-
 }

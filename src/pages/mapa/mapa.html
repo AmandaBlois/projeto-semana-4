@@ -9,8 +9,9 @@
 
 <ion-content padding>
 
-  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-info-window>Local</agm-info-window>
   </agm-map>
 
 </ion-content>
